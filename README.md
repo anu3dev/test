@@ -237,3 +237,39 @@ export default function PrimarySearchAppBar() {
           
           
           
+import React, { useState, useEffect } from "react";
+
+export default function Abc() {
+  const [data, setData] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos/")
+      .then((Response) => Response.json())
+      .then((data) => setData(data));
+  }, []);
+
+  const filteredTodo = data.filter((item) => {
+    return item.title.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
+  });
+
+  return (
+    <div>
+      <h3 style={{ textAlign: "center" }}>ToDO List</h3>
+      <div className="search" style={{ textAlign: "center" }}>
+        <input
+          type="text"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          placeholder="Search ToDo"
+        />
+      </div>
+      <ul style={{ listStyle: "none" }}>
+        {filteredTodo.map((txt) => (
+          <li key={txt.id}>{txt.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+
