@@ -219,3 +219,21 @@ export default function PrimarySearchAppBar() {
     </Box>
   );
 }
+
+
+<iframe
+            id="video"
+            width="230"
+            heigh="154"
+            src={"https://www.youtube.com/embed/" + props.data.videoId}
+            frameBorder="0"
+            allow="accelerometer, autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+          
+          npm install --save react-player
+          
+          https://www.npmjs.com/package/react-player
+          
+          
+          
